@@ -3,7 +3,7 @@
     <style>
       {{renderSlides.css}}
     </style>
-    <div id="preview" v-html="renderSlides.html"></div>
+    <div v-html="renderSlides.html"></div>
   </div>
 </template>
 
@@ -55,17 +55,4 @@ export default {
 }
 </script>
 
-<style lang="scss">
-#preview {
-  padding: 5%;
-  svg {
-    margin-bottom: 2%;
-    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.12), 0 3px 4px rgba(0, 0, 0, 0.24);
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    &:hover {
-      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.5),
-        0 10px 10px rgba(0, 0, 0, 0.45);
-    }
-  }
-}
-</style>
+<style lang="scss" scoped></style>
