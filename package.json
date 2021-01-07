@@ -21,7 +21,7 @@
     "@toast-ui/vue-editor": "^2.5.1",
     "core-js": "^3.8.2",
     "nuxt": "^2.14.6",
-    "sass": "^1.32.0",
+    "sass": "^1.32.2",
     "sass-loader": "^10.1.0",
     "vuex-persistedstate": "^4.0.0-beta.1"
   },
