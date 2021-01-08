@@ -15,9 +15,11 @@
 <script>
 import 'codemirror/lib/codemirror.css'
 import '@toast-ui/editor/dist/toastui-editor.css'
-
-import { Editor } from '@toast-ui/vue-editor'
+import 'highlight.js/styles/solarized-dark.css'
+import codeSyntaxHighlight from '@toast-ui/editor-plugin-code-syntax-highlight'
+import hljs from 'highlight.js'
 import uml from '@toast-ui/editor-plugin-uml'
+import { Editor } from '@toast-ui/vue-editor'
 
 export default {
   components: {
@@ -31,7 +33,7 @@ export default {
           : this.$store.state.markdown.markdown,
       editorOptions: {
         hideModeSwitch: true,
-        plugins: [uml],
+        plugins: [uml, [codeSyntaxHighlight, { hljs }]],
       },
     }
   },
@@ -58,9 +60,6 @@ export default {
       const markdown = this.$refs.toastuiEditor.invoke('getMarkdown')
       this.$store.commit('markdown/add', markdown)
       return markdown
-    },
-    present() {
-      alert('Hello World')
     },
   },
 }

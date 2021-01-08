@@ -1,58 +1,44 @@
 <template>
   <div>
-    <style>
-      {{renderSlides.css}}
-    </style>
     <div v-html="renderSlides.html"></div>
   </div>
 </template>
 
 <script>
-import { Marp } from '@marp-team/marp-core'
+import Reveal from 'reveal.js'
+import 'reveal.js/dist/reveal.css'
+import 'reveal.js/dist/theme/white.css'
+import { Marpit, Element } from '@marp-team/marpit'
 
 export default {
   data: () => {
     return {
-      marp: Marp,
+      marp: Marpit,
     }
   },
   computed: {
     renderSlides() {
       const markdown = this.$store.state.markdown.markdown
-      const { html, css } = this.marp.render(markdown)
-      return { html, css }
+      const { html } = this.marp.render(markdown)
+      return { html }
     },
   },
   created() {
-    this.marp = new Marp({
-      html: true,
-      markdown: {
-        // xhtmlOut: true, // Enable HTML tags
-        breaks: false, // Convert line breaks into `<br />`,
-      },
-      emoji: {
-        shortcode: true,
-        unicode: false,
-        twemoji: {
-          base: '/resources/twemoji/',
-        },
-      },
+    this.marp = new Marpit({
+      container: [
+        new Element('div', { class: 'reveal' }),
+        new Element('div', { class: 'slides' }),
+      ],
     })
-    this.marp.themeSet.add(`
-    /* @theme my-first-theme */
-
-    section {
-      background-color: #123;
-      color: white;
-      font-size: 30px;
-    }
-
-    h1 {
-      color: #8cf;
-    }
-    `)
+  },
+  mounted() {
+    Reveal.initialize()
   },
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss">
+.reveal {
+  height: 100vh;
+}
+</style>
