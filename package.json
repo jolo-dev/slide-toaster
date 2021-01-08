@@ -17,7 +17,7 @@
     "@marp-team/marpit-svg-polyfill": "^1.7.0",
     "@nuxt/typescript-runtime": "^2.0.0",
     "@nuxtjs/axios": "^5.12.5",
-    "@nuxtjs/pwa": "^3.0.2",
+    "@nuxtjs/pwa": "^3.3.4",
     "@toast-ui/editor-plugin-code-syntax-highlight": "^1.0.0",
     "@toast-ui/editor-plugin-uml": "^1.0.0",
     "@toast-ui/vue-editor": "^2.5.1",
